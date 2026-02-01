@@ -1,0 +1,268 @@
+/* 1. Font ve Temel Sıfırlama */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  /* Arka Plan Görseli */
+  background-image: url('beach-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 2. Üst Menü (Navbar) */
+.navbar {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  z-index: 10;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: 0.3s;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.navbar a:hover {
+  color: #00f2fe;
+}
+
+/* 3. ANA KART (MAKSİMUM YATAY GENİŞLİK) */
+.auth-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+
+  /* GENİŞLİK AYARLARI */
+  width: 95%;
+  /* Mobilde ekranı kaplar */
+  max-width: 850px;
+  /* genişlik */
+  padding: 70px 90px;
+  /* İkinci rakam (90px) sağ-sol boşluğu artırarak kutuyu enine büyütme */
+
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+}
+
+/* Başlık Ayarı */
+h2 {
+  font-size: 3.5rem;
+  margin-bottom: 50px;
+  font-weight: 800;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* 4. Giriş Alanları (Input) */
+.input-group {
+  position: relative;
+  margin-bottom: 35px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.input-group input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid rgba(0, 227, 239, 0.6);
+
+  padding: 15px 45px 10px 5px;
+  color: #e7c4e2;
+  font-size: 20px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* PLACEHOLDER (ENTER YOUR... YAZISI) RENK AYARI */
+.input-group input::placeholder {
+  color: #ffffff !important;
+  /* TAM BEYAZ YAPTIM */
+  opacity: 1 !important;
+  /* opak */
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  /* Okunurluk için hafif gölge */
+}
+
+/* İkonların Çizgi Üzerine Hizalanması */
+.input-icon {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  font-size: 22px;
+  color: rgba(244, 210, 243, 0.9);
+}
+
+/* 5. Alt Ayarlar (Şifremi Unuttum) */
+.remember-me {
+  display: flex;
+  flex-direction: column;
+  /* Üst üste dizer */
+  align-items: center;
+  /* Her şeyi yatayda tam ortaya hizalar */
+  justify-content: center;
+  /* Dikeyde ortalar */
+  gap: 12px;
+  /* Aralarındaki boşluk */
+  margin-bottom: 30px;
+  width: 100%;
+  /* Kartın genişliğine yayılması için */
+}
+
+.remember-me label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Checkbox ve yazıyı kendi içinde ortalar */
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.remember-me input {
+  margin-right: 8px;
+  /* Checkbox ile yazı arasındaki küçük boşluk */
+}
+
+.forgot-password {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.forgot-password:hover {
+  opacity: 1;
+  text-decoration: underline;
+  color: #00f2fe;
+  /* Üstüne gelince mavi parlasın */
+}
+
+/* 6. Giriş Butonu */
+.btn {
+  width: 100%;
+  padding: 20px;
+  background: #fff;
+  color: #333;
+  border: none;
+  border-radius: 40px;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+  background: #00f2fe;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(0, 242, 254, 0.4);
+}
+
+/* 7. Alt Metin (Kayıt Ol Geçişi) */
+.toggle-text {
+  margin-top: 35px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+
+  /* ALT ALTA GETİREN SİHİRLİ DOKUNUŞ */
+  display: flex;
+  flex-direction: column;
+  /* Yazıları kule gibi üst üste dizer */
+  align-items: center;
+  /* Yatayda tam ortalar */
+  gap: 10px;
+  /* Soru ile Register yazısı arasındaki boşluk */
+}
+
+.toggle-text span {
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  /* Register yazısını biraz daha vurgulu yaptık */
+  cursor: pointer;
+  text-decoration: underline;
+  transition: 0.3s;
+}
+
+.toggle-text span:hover {
+  color: #00f2fe;
+  /* Üstüne gelince parlaması için */
+}
+
+/* 8. Mobil Uyumluluk */
+@media (max-width: 600px) {
+  .auth-card {
+    padding: 40px 30px;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+}
+
+.welcome-card h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #00f2fe;
+}
+
+.user-email {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.welcome-content {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.logout-btn {
+  background: #ef85db !important;
+  /* Çıkış butonu*/
+  color: white !important;
+}
+
+.logout-btn:hover {
+  background: #2b1c24 !important;
+  box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3);
+}
