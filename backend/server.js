@@ -36,9 +36,9 @@ app.post('/register', async (req, res) => {
         });
 
         await newUser.save();
-        res.status(201).json({ message: "Kullanıcı başarıyla kaydedildi!" });
+        res.status(201).json({ message: "User registered successfully!" });
     } catch (error) {
-        res.status(400).json({ error: "Kayıt hatası! E-posta zaten kullanımda olabilir." });
+        res.status(400).json({ error: "Registration error! The email address may already be in use." });
     }
 });
 
@@ -49,21 +49,21 @@ app.post('/login', async (req, res) => {
         const user = await User.findOne({ email });
 
         if (!user) {
-            return res.status(404).json({ error: "Böyle bir kullanıcı bulunamadı!" });
+            return res.status(404).json({ error: "No such user found!" });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
-            return res.status(401).json({ error: "Hatalı şifre!" });
+            return res.status(401).json({ error: "Incorrect password!" });
         }
 
         res.status(200).json({
-            message: "Giriş başarılı! Hoş geldiniz.",
+            message: "Login successful! Welcome!.",
             username: user.username
         });
     } catch (error) {
-        res.status(500).json({ error: "Sunucu hatası oluştu." });
+        res.status(500).json({ error: "Server error occurred." });
     }
 });
 
@@ -75,7 +75,7 @@ app.post('/reset-password', async (req, res) => {
         // Kullanıcıyı e-posta ile bul
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(404).json({ error: "Bu e-posta adresine sahip bir kullanıcı bulunamadı!" });
+            return res.status(404).json({ error: "No user was found with this email address.!" });
         }
 
         // Yeni şifreyi güvenli hale getir (hashle)
@@ -85,9 +85,9 @@ app.post('/reset-password', async (req, res) => {
         user.password = hashedPassword;
         await user.save();
 
-        res.status(200).json({ message: "Şifreniz başarıyla güncellendi! Yeni şifrenizle giriş yapabilirsiniz." });
+        res.status(200).json({ message: "Your password has been successfully updated! You can log in with your new password." });
     } catch (error) {
-        res.status(500).json({ error: "Şifre sıfırlanırken sunucu tarafında bir hata oluştu." });
+        res.status(500).json({ error: "An error occurred on the server side while resetting the password." });
     }
 });
 
