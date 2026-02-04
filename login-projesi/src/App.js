@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
 import './App.css';
+
+import { FaEnvelope, FaLock, FaRegUser, FaSignOutAlt } from 'react-icons/fa';
+import React, { useState } from 'react';
+
 import axios from 'axios';
-import { FaRegUser, FaLock, FaEnvelope, FaSignOutAlt } from 'react-icons/fa';
 
 function App() {
   const [isLogin, setIsLogin] = useState(true);
@@ -71,6 +73,9 @@ function App() {
   };
 
   // --- EKRAN YÖNETİMİ ---
+
+    // INFO(OFU): LocalStorage kullanımı test amaçlıdır.
+    localStorage.setItem('loggedInUser', "nursena");
 
   // 1. HOŞ GELDİN EKRANI
   if (user) {
