@@ -71,20 +71,13 @@ app.post('/login', async (req, res) => {
 app.post('/reset-password', async (req, res) => {
     try {
         const { email, newPassword } = req.body;
-
-        // Kullanıcıyı e-posta ile bul
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(404).json({ error: "No user was found with this email address.!" });
         }
-
-        // Yeni şifreyi güvenli hale getir (hashle)
         const hashedPassword = await bcrypt.hash(newPassword, 10);
-
-        // Veritabanında şifreyi güncelle ve kaydet
         user.password = hashedPassword;
         await user.save();
-
         res.status(200).json({ message: "Your password has been successfully updated! You can log in with your new password." });
     } catch (error) {
         res.status(500).json({ error: "An error occurred on the server side while resetting the password." });
