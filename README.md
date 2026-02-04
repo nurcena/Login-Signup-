@@ -22,7 +22,7 @@ Bu proje, modern web teknolojileri (MERN) kullanılarak geliştirilmiş, güvenl
    ```bash
    cd backend
    npm install
-   node server.js
+   npm start
 
 3. Frontend'i çalıştırın:
    cd login-projesi
