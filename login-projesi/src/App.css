@@ -198,7 +198,6 @@ h2 {
   font-size: 15px;
   color: rgba(255, 255, 255, 0.8);
 
-  /* ALT ALTA GETİREN SİHİRLİ DOKUNUŞ */
   display: flex;
   flex-direction: column;
   /* Yazıları kule gibi üst üste dizer */
@@ -212,7 +211,7 @@ h2 {
   color: #fff;
   font-weight: 700;
   font-size: 18px;
-  /* Register yazısını biraz daha vurgulu yaptık */
+  /* Register yazısını biraz daha vurgulu */
   cursor: pointer;
   text-decoration: underline;
   transition: 0.3s;
